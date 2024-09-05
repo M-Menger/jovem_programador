@@ -1,0 +1,29 @@
+*{
+    background-color: darkgray;
+    text-align: center;
+    margin: 0;
+}
+
+img{
+    width: 350px;
+}
+
+div{
+    text-align: center;
+    padding: 5px;
+}
+
+.main{
+    margin: 0 auto;
+    width: 350px;
+    box-shadow: 1px black;
+}
+
+h1,h2,p{
+    text-align: left;
+}
+
+.contato-img{
+    width: 75px;
+    padding: 5px;
+}

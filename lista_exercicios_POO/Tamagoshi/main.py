@@ -25,4 +25,3 @@ else:
     opt = Menu(pet)
     opt.opcoes_menu()
 
-
