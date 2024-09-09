@@ -1,0 +1,34 @@
+Atribuição de Desenvolvimento de Página HTML
+Nesta tarefa, você criará várias páginas HTML para praticar a estruturação de conteúdo da web.
+Uma vez concluído, você entregará os .html arquivos ou repositórios no GitHub.
+
+Estrutura Básica da Página
+Para a primeira tarefa, crie uma página HTML simples com os seguintes elementos:
+
+Título Principal (h1): Dê à página um título principal que represente o seu conteúdo.
+Parágrafo: Escreva um breve parágrafo descrevendo o conteúdo da página.
+Lista não ordenada: Inclua uma lista não ordenada com três tópicos de interesse relacionados com o tema da página.
+Imagem: Adicione uma imagem que represente o tema da página.
+Exemplo: Se o tema for "Meu Hobby Favorito", você pode criar uma página sobre seu hobby favorito e incluir conteúdo relevante.
+
+Link Building
+
+Para a segunda tarefa, crie uma página com os seguintes elementos:
+Título (h2): Use "Meus Sites Favoritos" como título.
+Links: Inclua três links usando a tag "a" , cada um direcionando para seus sites favoritos.
+Link interno: Adicione um link que redireciona para outra seção dentro da mesma página.
+Listas ordenadas e não ordenadas
+
+A terceira tarefa envolve o desenvolvimento de uma página com os seguintes componentes:
+Título (h2): Use "My To-Do List" como título.
+Lista não ordenada: Crie uma lista não ordenada com pelo menos 5 itens representando as tarefas que você precisa fazer hoje.
+Lista ordenada: Inclua uma lista ordenada com 3 objetivos de longo prazo que pretende alcançar.
+Estrutura da Página do Portfólio
+
+Para a tarefa final, crie uma página de portfólio fictício com os seguintes elementos:
+Título (h1): Use seu nome como título.
+Parágrafo Biografia: Escreva uma breve biografia sobre você.
+Lista de habilidades: Inclua uma lista não ordenada com suas habilidades.
+Rodapé: Crie um rodapé contendo suas informações de contato, como e-mail e links de redes sociais.
+Lembre-se de usar tags HTML apropriadas e estruturar o conteúdo de forma eficaz. Depois de concluir as tarefas,
+ entregue os .html arquivos ou repositórios no GitHub. Boa sorte!
