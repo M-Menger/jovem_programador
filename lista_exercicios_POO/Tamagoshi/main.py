@@ -13,15 +13,17 @@ def criar_pet():
     pet = Tamagoshi(pet['Nome'],pet['Idade'])
 
     print('Pet criado!')
-    opt = Menu(pet)
+    opt = Menu(pet[0])
     opt.opcoes_menu()
 
 print('Bem vindo ao Tamagoshi!')
 
 if len(pet) == 0:
     print('Vamos criar o seu primeiro Pet!')
-    criar_pet()
+    pet = Menu(pet)
+    pet.set_criat_pet()
+
 else:
     opt = Menu(pet)
-    opt.opcoes_menu()
+    opt.set_opcoes_menu()
 

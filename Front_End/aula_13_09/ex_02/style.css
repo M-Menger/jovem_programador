@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    width: 100vw;
+}
+
+.card{
+    background-color: green;
+}
+
+.perfil{
+    background-color: aqua;
+}
+

@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+}
+
+.container{
+    display: grid;
+    width: 100vw;
+    background-color: blueviolet;
+}

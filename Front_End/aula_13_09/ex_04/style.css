@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+}
+
+.container{
+    display: grid;
+}
+
+header{
+    background-color: green;
+}
+
+aside{
+    background-color: yellow;
+}
+
+main{
+    background-color: blue;
+}
+
+footer{
+    background-color: red;
+}

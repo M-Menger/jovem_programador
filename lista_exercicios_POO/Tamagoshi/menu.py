@@ -3,7 +3,7 @@ class Menu():
         self.pet = pet
 
 
-    def alimentar_pet(self):
+    def set_alimentar_pet(self):
         print('\nO que você quer dar ao seu Pet? ')
         print('A) - Ração (Fome +10 / Humor -5)')
         print('B) - Biscoito (Fome +5 / Humor +2)')
@@ -16,14 +16,14 @@ class Menu():
                 food = 'Biscoito'
             case _:
                 print('Opção Invalida!')
-                return self.alimentar_pet()
+                return self.set_alimentar_pet()
         
         self.pet.set_alimentar(food)
         self.pet.get_fome()
         print('')
         self.opcoes_menu()
 
-    def brincar_pet(self):
+    def set_brincar_pet(self):
         print('\nComo você quer brincar com seu Pet? ')
         print('A) - Pega bolinha (Humor +15 / Fome -7)')
         print('B) - Cocegas (Humor +10)')
@@ -36,7 +36,7 @@ class Menu():
                 joke = 'Biscoito'
             case _:
                 print('Opção Invalida!')
-                return self.brincar_pet()
+                return self.set_brincar_pet()
         
         self.pet.set_brincar(joke)
         self.pet.get_humor()
@@ -56,8 +56,20 @@ class Menu():
         self.pet.get_idade()
         self.opcoes_menu()
 
-    def criar_pet(self):
-        ...
+    def set_criat_pet(self,pet):
+        nome = str(input('Vamos criar o nosso pet! Digite o nome: '))
+        idade = int(input('Digite a idade do Pet: '))
+
+        pet = {'Nome': nome,
+                'Idade': idade}
+
+        #pet = Tamagoshi(pet['Nome'],pet['Idade'])
+
+        print('Pet criado!')
+
+            
+
+
     def opcoes_menu(self):
         print('\n O que você deseja fazer?')
         print('A) Alimentar o Pet')
@@ -70,9 +82,9 @@ class Menu():
 
         match opt.lower():
             case 'a':
-                self.alimentar_pet()
+                self.set_alimentar_pet()
             case 'b':
-                self.brincar_pet()
+                self.set_brincar_pet()
             case 'c':
                 self.get_status()
             case 'd':
@@ -80,7 +92,7 @@ class Menu():
             case 'e':
                 self.get_idade()
             case 'f':
-                self.criar_pet()
+                self.set_criat_pet()
             case _:
                 print('Opção Invalida')
                 self.opcoes_menu() 
