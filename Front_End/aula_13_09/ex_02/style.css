@@ -1,0 +1,36 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: darkgray;
+    padding: 50px;
+}
+
+img{
+    width: 100px;
+}
+
+p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+span{
+    font-weight: bold;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: lightblue;
+    width: 30vw;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.card{
+    display: flex;
+    align-items: center;
+}
+
