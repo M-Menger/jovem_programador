@@ -6,11 +6,19 @@
 
 .container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: ;
+    grid-template-columns: 2fr 2fr;
     width: 100vw;
     background-color: blueviolet;
 }
+
+.imagens{
+    width: 150px;
+}
+
 img{
     width: 150px;
+}
+
+img:hover{
+    width: 300px;
 }
