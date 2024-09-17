@@ -1,0 +1,23 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: darkgrey;
+}
+.container{
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+}
+.card{
+    width: 20vw;
+    height: 35vw;
+    align-content: center;
+    background-color: rgb(44, 3, 83);
+}
+
+img{
+    width: 10vw;
+}

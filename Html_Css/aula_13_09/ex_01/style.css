@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100vw;
+    background-color: darkblue;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.options{
+    display: flex;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    padding: 10px; /* Adiciona um espaço ao redor dos links */
+}
