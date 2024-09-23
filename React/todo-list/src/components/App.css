@@ -47,10 +47,22 @@
   padding: 20px;
 }
 
-.formTodo{
-  width: 33vw;
+.formTodo, .list-ToDo{
+  width: 34vw;
   display: flex;
   justify-content: space-evenly;
+}
+
+.titleToDo{
+  width: 200px;
+  height: 25px;
+  margin: 5px;
+}
+
+.taskToDo{
+  width: 250px;
+  height: 25px;
+  margin: 5px;
 }
 
 .txtInp{

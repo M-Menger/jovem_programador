@@ -1,7 +1,9 @@
-import linkedin from './assets/linkedin-logo.png'
-import gitHub from './assets/github-logo.png'
+import linkedin from '../assets/linkedin-logo.png'
+import gitHub from '../assets/github-logo.png'
 import './App.css'
-import FormToDo from './FormToDo'
+import ListToDo from './ListToDo'
+import ToDoFomr from './ToDoForm'
+import ToDoForm from './ToDoForm'
 
 function App() {
 
@@ -9,7 +11,10 @@ function App() {
     <>
       <h1>Todo List</h1>
       <div className="card">
-        <FormToDo/>
+      <ToDoForm/>
+      </div>
+      <div>
+        <ListToDo/>
       </div>
 
       <p className="read-the-docs">
