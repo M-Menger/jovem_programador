@@ -10,7 +10,8 @@ interface IListToDoProps {
 export const ListToDo: React.FC<IListToDoProps> = ({ tasks }) => {
     return (
         <div className='Lista-ToDo'>
-            <h1>Tarefas</h1>
+            <h1>ToDo List JP</h1>
+            <h3>Tarefas</h3>
                 <ul>
                     {tasks.map((task, index) => (
                         <li key={index}>

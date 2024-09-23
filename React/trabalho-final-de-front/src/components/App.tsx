@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Router>
       <div>
-        <nav>
+        <nav className='NavBar'>
           <ul>
             <li>
               <Link to={"/add"}> Adicionar Tarefa </Link>
@@ -21,11 +21,13 @@ const App = () => {
             </li>
           </ul>
         </nav>
+        <div>
           <Routes>
-            <Route path="/add" element={<AddToDo tasks={tasks} setTasks={setTasks} />}/> 
+            <Route path="/add" element={<AddToDo tasks={tasks} setTasks={setTasks} />}/>
             <Route path="/list" element={<ListToDo tasks={tasks} />} />
           </Routes>
         </div>
+      </div>
     </Router>
   )
 }

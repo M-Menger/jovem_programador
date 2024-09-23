@@ -21,6 +21,7 @@ export const AddToDo: React.FC<IaddToDoProps> = ({ tasks, setTasks }) => {
     return (
         <div>
             <h1>ToDo List JP</h1>
+            <h3>Adicionar Tarefa</h3>
             <form>
                 <input 
                     type="text"
