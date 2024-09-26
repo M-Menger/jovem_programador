@@ -1,32 +1,59 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { serverApi } from "../services/serverApi";
 
 interface ITask {
+    id: number;
     title: string;
     description: string;
+    solved: boolean;
 }
 
 interface IListToDoProps {
     tasks: ITask[];
 }
 
-const jsonToDo: ITask = {
-    title: "",
-    description: ""
-};
-
-export function Tasks() {
-    const [t]
-}
-
-
 export const ListToDo: React.FC<IListToDoProps> = ({ tasks }) => {
     const [taskList, setTaskList] = useState<ITask[]>(tasks);
     const [editIndex, setEditIndex] = useState<number | null>(null);
-    const [editTask, setEditTask] = useState<ITask>({ title: '', description:''});
-    
+    const [editTask, setEditTask] = useState<ITask>({id:0 ,  title: "", description: "", solved: false});
+
+    useEffect(() => {
+        serverApi.get("/tasks").then((response) =>{
+            console.log(response);
+            setTaskList(response.data);
+        });
+    }, []);
+
+
+    const handleComplete = (index: number) => {
+        const taskToUpdate = taskList[index];
+        const updatedTask = { ...taskToUpdate, solved: !taskToUpdate.solved }; 
+
+        serverApi.put(`/tasks/${taskToUpdate.id}`, { 
+            solved: updatedTask.solved,
+            title: editTask.title,
+            description: editTask.description,
+         })
+            .then(() => {
+                
+                const updatedTaskList = [...taskList];
+                updatedTaskList[index] = updatedTask;
+                setTaskList(updatedTaskList); 
+            })
+            .catch(error => console.log("Error Updating Task: ", error));
+    };;
+
     const handleDelete = (index: number) => {
-        const newTaskList = taskList.filter((_, i) => i !== index);
-        setTaskList(newTaskList);
+        const taskToDelete = taskList[index];
+
+        serverApi.delete(`/tasks/${taskToDelete.id}`)
+            .then(() => {
+                const newTaskList = taskList.filter((_,i) => i !== index);
+                setTaskList(newTaskList);
+            })
+            .catch(error => {
+                console.error("Deu pau na deleção da tarefa! ", error);
+            });
     };
 
     const handleEdit = (index: number) => {
@@ -36,58 +63,71 @@ export const ListToDo: React.FC<IListToDoProps> = ({ tasks }) => {
 
     const handleSave = () => {
         if (editIndex !== null) {
-            const updatedTasks = [...taskList];
-            updatedTasks[editIndex] = editTask;
-            setTaskList(updatedTasks);
-            setEditIndex(null);
+            const taskToUpdate = taskList[editIndex];
+
+            serverApi.put(`/tasks/${taskToUpdate.id}`,{
+                title: editTask.title,
+                description: editTask.description,
+            })
+            .then(() => {
+                const updatedTasks = [...taskList];
+                updatedTasks[editIndex] = editTask;
+                setTaskList(updatedTasks);
+
+                setEditIndex(null);
+            })
+            .catch(error => console.log("Error Updating Task: ", error));
         }
     };
 
-
     return (
         <div className='Lista-ToDo'>
-            <h1>ToDo List JP</h1>
-            <h3>Tarefas</h3>
-                <ul>
-                    {taskList.map((task, index) => (
-                        <li key={index}>
-                            {editIndex === index ? (
-                                <>
-                                    <input 
-                                        type="text" 
-                                        value={editTask.title} 
-                                        onChange={(e) => setEditTask({ ...editTask, title: e.target.value})} 
-                                    />
+            <h2>Tarefas</h2>
+                <div className="main-container">
+                    <ul className="list-unorder">
+                        {taskList?.map((task, index) => (
+                            <li className="tasks" key={index}>
+                                {editIndex === index ? (
+                                    <>  
+                                        <input 
+                                            className="edt-title"
+                                            type="text" 
+                                            value={editTask.title} 
+                                            onChange={(e) => setEditTask({ ...editTask, title: e.target.value})} 
+                                        />
 
-                                    <input 
-                                        type="text"
-                                        value={editTask.description}
-                                        onChange={(e) => setEditTask({ ...editTask, description: e.target.value})}
-                                    />
+                                        <input  
+                                            className="edt-desc"
+                                            type="text"
+                                            value={editTask.description}
+                                            onChange={(e) => setEditTask({ ...editTask, description: e.target.value})}
+                                        />
 
-                                    <button onClick={handleSave}>
-                                        Save
-                                    </button>
-                                </>
-                            ) : (
-                                <>
-                                    <strong>{task.title}:</strong> {task.description}
-                                    <a href="#" onClick={() => handleEdit(index)}>
-                                        <img className="icons" src="./src/assets/attention-icon.png" alt="Edit Icon" />
-                                    </a>
+                                        <button className="btn-edt" onClick={handleSave}>
+                                            <img className="icons" src="./src/assets/save-icon.png" alt="Save Icon" />
+                                        </button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <p className={`this-task ${task.solved ? 'completed' : ''}`}><strong>Titulo:</strong> {task.title} <strong>Descrição:</strong> {task.description}</p>
 
-                                    <a href="#" onClick={() => handleDelete(index)}>
-                                        <img className="icons" src="./src/assets/delete-icon.png" alt="Delete Icon" />
-                                    </a>
+                                        <button className="btn-icon" onClick={() => handleEdit(index)}>
+                                            <img className="icons" src="./src/assets/attention-icon.png" alt="Edit Icon" />
+                                        </button>
 
-                                    <a href="#">
-                                        <img className="icons" src="./src/assets/check-icon.png" alt="Check Icon" />
-                                    </a>
-                                </>
-                            )}
-                        </li>
-                    ))}
-                </ul>
+                                        <button className="btn-icon" onClick={() => handleDelete(index)}>
+                                            <img className="icons" src="./src/assets/delete-icon.png" alt="Delete Icon" />
+                                        </button>
+
+                                        <button className="btn-icon" onClick={() => handleComplete(index)} >
+                                            <img className="icons" src="./src/assets/check-icon.png" alt="Check Icon" />
+                                        </button>
+                                    </>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
         </div>
     );
 };

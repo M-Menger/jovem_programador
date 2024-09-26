@@ -1,4 +1,3 @@
-import './App.css'
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
@@ -11,15 +10,16 @@ const App = () => {
   return (
     <Router>
       <div>
-        <nav className='NavBar'>
-          <ul>
-            <li>
-              <Link to={"/add"}> Adicionar Tarefa </Link>
-            </li>
-            <li>
-              <Link to={"/list"}> Ver tarefas </Link>
-            </li>
-          </ul>
+        <nav className='navBar'>
+          <h1>ToDo List JP</h1>
+            <ul className='main-menu'>
+              <li className='itens'>
+                <Link to={"/add"} className='router'> Adicionar Tarefa </Link>
+              </li>
+              <li className='itens'>
+                <Link to={"/list"} className='router'> Ver tarefas </Link>
+              </li>
+            </ul>
         </nav>
         <div>
           <Routes>
