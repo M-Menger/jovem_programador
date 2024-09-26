@@ -1,7 +1,9 @@
 {
-    "tasks":{
+    "tasks":[
+        {
         "id":1,
-        "title":"Tarefa 1",
-        "description":"Teste tarefa 1"
-    }
+        "title":"Olá, Mundo!",
+        "description":"Tirando a maldição"
+        }
+    ]
 }
